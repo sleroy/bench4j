@@ -1,12 +1,26 @@
-*.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+target/
+komea-product/komea-admin-webgui/komea_err.log
+komea-product/komea-admin-webgui/.komea/
+.nb-gradle-properties
+.settings
+.classpath
+.nb-gradle/
+.project
+*.versionsBackup
+*~
+.cache
+komea.log
+log.txt
+*.orig
+/komea-gui/komea-portlets/nb-configuration.xml
+/komea-gui/komea-tv/nbactions.xml
+.ehcache
+/documentation/.nb-gradle/private/
+/komea-kpis/komea.log
+.gradle
+build
+komea_err.log
+spring.log
+komea.log
+bin
+.komea
