@@ -79,6 +79,58 @@ The output is :
 
 ```
 
+Advanced examples :
+------------------------
+
+**Parameterized tests**
+
+```
+@RunWith(Parameterized.class)
+public class ParameterizedConsoleTest {
+
+	@Parameters(name = "{0}")
+	public static Collection<Object[]> data() {
+		return Arrays.asList(new Object[][] { { 100 }, { 200 }, { 400 }, { 600 } });
+	}
+
+	@Parameter(value = 0)
+	public int	                     steps;
+
+	public static final IBenchReport	report	= new ConsoleReport();
+
+	@Rule
+	public BenchRule	             rule	   = new BenchRule(report);
+
+	@BenchmarkOptions(warmupRounds = 5, benchmarkRounds = 5)
+	@Test
+	public void iterationCostTime() {
+		final int[][][] board = new int[steps][steps][steps];
+		for (int i = 0; i < steps; ++i) {
+			for (int z = 0; z < steps; ++z) {
+				for (int k = 0; k < steps; ++k) {
+					board[i][z][k] = 2;
+				}
+			}
+
+		}
+	}
+}
+```
+
+In this example, we are using a custom report (ConsoleReport). Each test case is launched with a set of parameters (100, 200, ...).
+Each combination of (testcase, parameter) is benched through many rounds of  warmup + benchs.
+
+The report prints the results of the execution as :
+
+```
+com.tocea.frameworks.bench4j.ParameterizedConsoleTest:iterationCostTime(steps=100) ==>  ( warmupTime(median)=0.002s, benchTime(median)=0.002s, gc_calls=1, gc_time=0.005s
+c.t.f.b.r.console.ConsoleReport - com.tocea.frameworks.bench4j.ParameterizedConsoleTest:iterationCostTime(steps=200) ==>  ( warmupTime(median)=0.015s, benchTime(median)=0.01s, gc_calls=4, gc_time=0.021s
+c.t.f.b.r.console.ConsoleReport - com.tocea.frameworks.bench4j.ParameterizedConsoleTest:iterationCostTime(steps=400) ==>  ( warmupTime(median)=0.124s, benchTime(median)=0.106s, gc_calls=13, gc_time=0.592s
+c.t.f.b.r.console.ConsoleReport - com.tocea.frameworks.bench4j.ParameterizedConsoleTest:iterationCostTime(steps=600) ==>  ( warmupTime(median)=0.913s, benchTime(median)=0.678s, gc_calls=56, gc_time=5.969s
+
+```
+
+
 Example of Charts generated :
 -----------------------------------
 
