@@ -79,5 +79,18 @@ The output is :
 
 ```
 
+Example of Charts generated :
+-----------------------------------
+
+[example1][https://raw.githubusercontent.com/sleroy/bench4j/master/docs/Benchmark_mean.png]
+
+[example2][https://raw.githubusercontent.com/sleroy/bench4j/master/docs/Benchmark_median.png]
+
+[example3][https://raw.githubusercontent.com/sleroy/bench4j/master/docs/compare.png]
+
+
+
+
+
 
 
