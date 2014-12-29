@@ -49,7 +49,7 @@ The main functionalities are :
 * Easy customization of the report
 * Free access to all bench data to write your own benchs and statistics
 
-Basic example is : 
+Basic example :
 ------------------------
 
 ```
@@ -72,6 +72,7 @@ public class SimpleTest {
 
 The output is :
 
+```
 23:03:49.431 [main] DEBUG c.t.f.b.impl.BenchmarkStatement - Launching benchmark testGC
 23:03:49.784 [main] INFO  c.t.f.b.r.console.ConsoleReport - com.tocea.frameworks.bench4j.GcTest:testGC(default) ==>  ( warmupTime(median)=0.0255s, benchTime(median)=5.0E-4s, gc_calls=40, gc_time=0.291s
 23:03:49.786 [main] DEBUG c.t.f.b.impl.BenchmarkStatement - Benchmark finished testGC
