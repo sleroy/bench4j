@@ -25,7 +25,8 @@ public class ParameterizedJFreeChartTest {
 	@Parameter(value = 0)
 	public int	                     steps;
 
-	public static final IBenchReport	report	= new JFreeChartBenchmarkReport(new File("target"), 800, 600);
+	public static final IBenchReport	report	= new JFreeChartBenchmarkReport(new File("target"),
+			ParameterizedJFreeChartTest.class.getSimpleName(), 800, 600);
 
 	@Rule
 	public BenchRule	             rule	   = new BenchRule(report);

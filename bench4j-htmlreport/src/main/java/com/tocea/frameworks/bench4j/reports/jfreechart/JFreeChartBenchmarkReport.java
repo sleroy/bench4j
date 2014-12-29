@@ -53,35 +53,53 @@ public class JFreeChartBenchmarkReport implements IBenchReport {
 
 	}
 
+	/**
+	 * Creates a Html report using as subfolder the test name.
+	 * 
+	 * @param _reportFolder
+	 *            the report folder
+	 * @param _testName
+	 *            the test name
+	 * @param width
+	 *            the width of the graphics
+	 * @param height
+	 *            the height of the graphics.
+	 */
+	public JFreeChartBenchmarkReport(File _reportFolder, String _testName, int width, int height) {
+		this(new File(_reportFolder, _testName), width, height, true);
+	}
+
 	public Map<RecordKey, BenchRecord> getRecords() {
 		return records;
 	}
 
 	/*
-	 * 
+	 *
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see com.tocea.frameworks.bench4j.IBenchReport#update()
 	 */
 	@Override
-	public void update(Statement _statement, FrameworkMethod _description, Object _target, BenchRecord _record) {
+	public synchronized void update(Statement _statement, FrameworkMethod _description, Object _target,
+			BenchRecord _record) {
 		try {
 			final Map<String, Object> parameters = new GetJUnitParameters(_description, _target).searchParameters();
 			final RecordKey recordKey = new RecordKey(_description, parameters);
-			final BenchRecord benchRecord = records.get(recordKey);
-			if (benchRecord == null) {
-				records.put(recordKey, benchRecord);
-			}
-			return benchRecord;
-
-			generateTimevariationChart(_statement, _description, _target);
-			generateBenchChartPerParameter();
+			registerRecord(_record, recordKey);
 
 			/**
 			 * Refresh site
 			 */
 			final HtmlIndexPage htmlIndexPage = new HtmlIndexPage(reportFolder);
 			htmlIndexPage.generate(records);
+			/**
+			 * Refresh time variation charts
+			 */
+			generateTimevariationChart(_statement, _description, _target);
+			/**
+			 * Refresh bench charts
+			 */
+			generateBenchChartPerParameter();
 
 		} catch (final Exception e) {
 
@@ -95,10 +113,18 @@ public class JFreeChartBenchmarkReport implements IBenchReport {
 	}
 
 	private void generateTimevariationChart(Statement _statement, FrameworkMethod _description, Object _target)
-	        throws IOException {
+			throws IOException {
 		final Map<String, Object> parameters = new GetJUnitParameters(_description, _target).searchParameters();
 		final BenchRecord benchRecord = records.get(new RecordKey(_description, parameters));
 		new TimeVariationGraphGenerator(_statement, _description, benchRecord, reportFolder, width, height).generate();
+	}
+
+	private void registerRecord(BenchRecord _record, final RecordKey recordKey) {
+		final BenchRecord benchRecord = records.get(recordKey);
+		if (benchRecord == null) {
+			records.put(recordKey, _record);
+		}
+
 	}
 
 }

@@ -131,7 +131,7 @@ c.t.f.b.r.console.ConsoleReport - com.tocea.frameworks.bench4j.ParameterizedCons
 ```
 
 
-Example of Charts generated :
+Example of generated charts :
 -----------------------------------
 
 ![example1](https://raw.githubusercontent.com/sleroy/bench4j/master/docs/Benchmark_mean.png)
