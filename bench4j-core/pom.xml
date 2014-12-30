@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.tocea.frameworks</groupId>
     <artifactId>bench4j</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
   </parent>
   <artifactId>bench4j-core</artifactId>
   <name>Bench4J Core module</name>

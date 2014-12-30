@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.tocea.frameworks</groupId>
 	<artifactId>bench4j</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 	<name>Bench4J is Java microbenchmarking framework</name>
 	<description>Bench4J is a simple Java framework to write micro benchmarks and generate Graph</description>
 	<url>https://github.com/sleroy/bench4j</url>
