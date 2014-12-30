@@ -4,7 +4,7 @@ Bench4J
 
 [![Travis Build Status](http://img.shields.io/travis/sleroy/bench4j.svg)](https://travis-ci.org/sleroy/bench4j)
 [![Coverage Status](http://img.shields.io/coveralls/sleroy/bench4j.svg)](https://coveralls.io/r/sleroy/bench4j)
-[![Semantic Versioning](http://img.shields.io/:semver-0.1.0-blue.svg)](http://semver.org)
+[![Semantic Versioning](http://img.shields.io/:semver-0.1.1-blue.svg)](http://semver.org)
 [![Bintray](http://img.shields.io/badge/download-latest-bb00bb.svg)](https://bintray.com/sleroy/kordamp/bench4j)
 
 
@@ -19,7 +19,7 @@ To use it, simply adds the following lines in your maven project :
   <dependency>
   	<groupId>com.tocea.frameworks</groupId>
   	<artifactId>bench4j-core</artifactId>
-  	<version>0.1.0</version>
+  	<version>0.1.1</version>
   	<scope>test</scope>
   </dependency>
 ```
@@ -30,7 +30,7 @@ To generate a html report, adds the following extension
   <dependency>
   	<groupId>com.tocea.frameworks</groupId>
   	<artifactId>bench4j-htmlreport</artifactId>
-  	<version>0.1.0</version>
+  	<version>0.1.1</version>
   	<scope>test</scope>
   </dependency>
 ```
