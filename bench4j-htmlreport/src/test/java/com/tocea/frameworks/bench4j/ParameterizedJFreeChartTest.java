@@ -19,14 +19,14 @@ public class ParameterizedJFreeChartTest {
 
 	@Parameters(name = "{0}")
 	public static Collection<Object[]> data() {
-		return Arrays.asList(new Object[][] { { 100 }, { 200 }, { 400 }, { 600 } });
+		return Arrays.asList(new Object[][] { { 10 }, { 20 }, { 40 }, { 100 } });
 	}
 
 	@Parameter(value = 0)
 	public int	                     steps;
 
 	public static final IBenchReport	report	= new JFreeChartBenchmarkReport(new File("target"),
-			ParameterizedJFreeChartTest.class.getSimpleName(), 800, 600);
+	                                                   ParameterizedJFreeChartTest.class.getSimpleName(), 800, 600);
 
 	@Rule
 	public BenchRule	             rule	   = new BenchRule(report);

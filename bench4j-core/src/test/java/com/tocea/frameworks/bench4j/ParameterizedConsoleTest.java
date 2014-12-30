@@ -18,7 +18,7 @@ public class ParameterizedConsoleTest {
 
 	@Parameters(name = "{0}")
 	public static Collection<Object[]> data() {
-		return Arrays.asList(new Object[][] { { 100 }, { 200 }, { 400 }, { 600 } });
+		return Arrays.asList(new Object[][] { { 10 }, { 20 }, { 40 }, { 100 } });
 	}
 
 	@Parameter(value = 0)
