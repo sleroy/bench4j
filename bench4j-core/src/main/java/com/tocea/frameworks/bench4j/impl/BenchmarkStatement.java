@@ -20,14 +20,14 @@ import com.tocea.frameworks.bench4j.IBenchReport;
 public class BenchmarkStatement extends Statement {
 
 	private static final String	  DEFAULT_METHOD_OPTIONS	= "defaultOptions";
+	private static final Logger	  LOGGER	             = LoggerFactory.getLogger(BenchmarkStatement.class);
 	private final Statement	      base;
 	private final FrameworkMethod	description;
-	private final IBenchReport	  report;
 
-	private static final Logger	  LOGGER	             = LoggerFactory.getLogger(BenchmarkStatement.class);
+	private final IBenchReport	  report;
 	private final Object	      target;
 
-	public BenchmarkStatement(Statement _base, FrameworkMethod _method, Object _target, IBenchReport _report) {
+	public BenchmarkStatement(final Statement _base, final FrameworkMethod _method, final Object _target, final IBenchReport _report) {
 		base = _base;
 		description = _method;
 		target = _target;
@@ -57,7 +57,7 @@ public class BenchmarkStatement extends Statement {
 	 * com.tocea.frameworks.bench4j.IBenchReport#newBenchRecord(org.junit.runner
 	 * .Description)
 	 */
-	public BenchRecord newBenchRecord(FrameworkMethod _description, Object _target) {
+	public BenchRecord newBenchRecord(final FrameworkMethod _description, final Object _target) {
 
 		final BenchRecord benchRecord = new BenchRecord(_description.getDeclaringClass().getName(),
 				_description.getName());
